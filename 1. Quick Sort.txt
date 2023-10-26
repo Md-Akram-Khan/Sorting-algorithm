@@ -1,0 +1,34 @@
+#include <bits/stdc++.h> 
+int partition(int low, int high, vector<int> &nums)
+{
+    int pivot = nums[low];
+    int i = low, j = high;
+    while(i < j)
+    {
+        while(nums[i] <= pivot and i <= high - 1)
+        {
+            i++;
+        }
+        while(nums[j] > pivot and j >= low + 1)
+        {
+            j--;
+        }
+        if(i < j) swap(nums[i],nums[j]);
+    }
+    swap(nums[j], nums[low]);
+    return j;
+}
+void divide(int low, int high, vector<int> &nums)
+{
+    if(low < high)
+    {
+        int partitionpos = partition(low, high, nums);
+        divide(low, partitionpos - 1, nums);
+        divide(partitionpos + 1, high, nums);
+    }
+}
+vector<int> quickSort(vector<int> arr)
+{
+    divide(0, arr.size() - 1, arr);
+    return arr;
+}
