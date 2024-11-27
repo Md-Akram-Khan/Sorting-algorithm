@@ -1,3 +1,18 @@
+// int partition(int low, int high, vector<int> &nums)
+// {
+//     int pivot = nums[low];
+//     int i = low;
+//     for(int k = low + 1; k <= high; k++)
+//     {
+//         if(nums[k] <= pivot)
+//         {
+//             i++;
+//             swap(nums[i], nums[k]);
+//         }
+//     }
+//     swap(nums[i], nums[low]);
+//     return i;
+// }
 int partition(int low, int high, vector<int> &nums)
 {
     int pivot = nums[low];
